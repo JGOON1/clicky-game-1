@@ -7,7 +7,7 @@ import "./App.css";
 
 let correctGuesses = 0;
 let bestScore = 0;
-let clickMessage = "Click on an image to earn points, but don't click on any of them more than once!";
+let clickMessage = "Click on a movie poster to gain points! Click on the same one twice and you lose!";
 
 class App extends Component {
     
@@ -35,7 +35,7 @@ class App extends Component {
             console.log ("Best Score: " + bestScore);
 
             correctGuesses = 0;
-            clickMessage = "Dang! You already clicked on that one! Now you have to start over!"
+            clickMessage = "Bummer! You already clicked on this one."
 
             for (let i = 0 ; i < matches.length ; i++){
                 matches[i].clicked = false;
@@ -99,18 +99,19 @@ class App extends Component {
     render() {
         return (
             <Wrapper>
-                <Title>To boldly click where no one has clicked before!</Title>
+                <Title>Clickity Clack Movie Game</Title>
         
                 <h3 className="scoreSummary">
                     {this.state.clickMessage}
                 </h3>
                 
-                <h3 className="scoreSummary">
+                <h3 className="scoreSummary card-header">
                     Correct Guesses: {this.state.correctGuesses} 
                     <br />
                     Best Score: {this.state.bestScore} 
                 </h3>
-
+                <div className="container">
+                <div className="row">
                 {this.state.matches.map(match => (
                     <MatchCard
                         setClicked={this.setClicked}
@@ -119,6 +120,9 @@ class App extends Component {
                         image={match.image}
                     />
                 ))}
+                </div>
+                </div>
+
             </Wrapper>
         );
     }
