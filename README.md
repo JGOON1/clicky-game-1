@@ -12,7 +12,7 @@ The design of the application uses Bootstrap 4 as a framework.  It is intentiona
 
 ### How to Use
 
-You can use this game here! 
+You can use this game [here](https://clickity-clack.herokuapp.com/)!
 
 
 
